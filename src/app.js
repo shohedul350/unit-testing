@@ -1,6 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv';
-import configure from './controllers';
+import configure from './controllers/index';
 import { processRequest, handleError } from './middlewares/index';
 import { infoLogger, errorLogger } from './logger';
 
@@ -10,15 +10,15 @@ const app = express();
 app.use(express.json());
 app.use(processRequest);
 
-if (process.env.NODE_ENV !== 'TEST') {
-  app.use(infoLogger);
-}
+// if (process.env.NODE_ENV !== 'TEST') {
+//   app.use(infoLogger);
+// }
 
 configure(app);
 
-if (process.env.NODE_ENV !== 'TEST') {
-  app.use(errorLogger(uri));
-}
+// if (process.env.NODE_ENV !== 'TEST') {
+//   app.use(errorLogger(uri));
+// }
 
 app.use(handleError);
 export default app;
