@@ -9,6 +9,6 @@ describe('app test suite', () => {
     console.log('get all user test start');
     const response = await request(app).get('/users');
     expect(response.statusCode).toBe(200);
-    console.log(response.body);
+    // console.log(response.body);
   });
 });
