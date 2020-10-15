@@ -8,7 +8,7 @@
   },
   "scripts": {
     "start": "nodemon -r esm ./src/server.js",
-    "test": "jest --runInBand --force-exit"
+    "test": "jest"
   },
   "author": "shohedul",
   "license": "ISC",
