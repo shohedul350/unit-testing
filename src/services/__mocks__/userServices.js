@@ -1,8 +1,8 @@
 const users = [{
-  id: '1', username: 'test001',
+  '_id': '1', 'username': 'test001',
 },
 {
-  id: '2', username: 'test002',
+  '_id': '2', 'username': 'test002',
 },
 ];
 

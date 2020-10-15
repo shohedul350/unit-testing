@@ -1,16 +1,15 @@
 import request from 'supertest';
 import app from '../src/app';
+import { getAllUsers } from '../src/services/userServices';
 
 jest.mock('../src/services/userServices');
 
-describe('userservices test start', () => {
-	  test('get all user test', async () => {
-	 	console.log('get all user test start');
-    const response = await request(app).get('/users');
+describe('userservices test Suite', () => {
+	  test('get all user should return an array of user', async () => {
+       const response = await request(app).get('/users');
 		expect(response.statusCode).toBe(200);
-		// console.log(response)
 		const users = response.body
-		expect(users.length).toBe(2);
-		expect(users[0].id).toBe('1');
+		expect(users.length).toBeGreaterThan(0);
+		expect(users[0]._id).toBe('1');
   });
 });
