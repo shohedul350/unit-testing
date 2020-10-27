@@ -14,7 +14,6 @@ describe('userservices test Suite', () => {
   });
   test('post should return saved user', async () => {
     const user = {
-      id: '03',
       userName: 'Emon',
       email: 'emon@gmail.com',
       address: 'Rangpur',
@@ -26,5 +25,11 @@ describe('userservices test Suite', () => {
     const savedUserResponse = await request(app).get(`/users/'${body}`);
     const savedUser = savedUserResponse.body;
     expect(savedUser.username).toBe(user.username);
+  });
+
+  test.only('get by id should return an user', async () => {
+    const response = await request(app).get('/users/1');
+    const user = response.body;
+    expect(user._id).toBe('1');
   });
 });

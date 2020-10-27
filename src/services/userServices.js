@@ -13,6 +13,12 @@ export const getAllUsers = async () => {
   return users;
 };
 
+export const singleUser = async (id) => {
+  const User = models.User;
+  const users = await User.findById(id);
+  return users;
+};
+
 export const update = async (user) => {
   const id = user._id;
   const User = models.User;
