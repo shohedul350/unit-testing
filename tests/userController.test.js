@@ -37,13 +37,21 @@ describe('userservices test Suite', () => {
       _id: '1',
       userName: 'Emon Update',
     };
-	const response = await request(app).put('/users').send(user);
-	// console.log(response.body)
+    const response = await request(app).put('/users').send(user);
+    // console.log(response.body)
     expect(response.statusCode).toBe(200);
     const body = response.body;
     // expect(body.length).toBe(24);
     const updateUserResponse = await request(app).get(`/users/'${body}`);
     const updateUser = updateUserResponse.body;
     expect(updateUser.username).toBe(user.username);
+  });
+  test('delete by id should return success message', async () => {
+    const response = await request(app).delete('/users/1');
+    expect(response.statusCode).toBe(200);
+    // const deletedUserResponse = await request(app).get('/users/1');
+    // expect(deletedUserResponse.statusCode).toBe(404);
+    // const deletedUser = deletedUserResponse.body;
+    // expect(deletedUser.message).toBe('User not found by the id: 1');
   });
 });

@@ -33,3 +33,12 @@ export const update = async (updateDate) => {
   // users[0].userName = user.userName;
   // return users[0];
 };
+export const deleteById = async (id) => {
+  const model = users.find((u) => u._id === id);
+  if (model) {
+    model.delete
+    return model
+  }
+  // users[0].userName = user.userName;
+  // return users[0];
+};
