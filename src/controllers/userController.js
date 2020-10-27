@@ -37,7 +37,7 @@ const putHandler = async (req, res, next) => {
   try {
     const body = req.body;
     const user = await update(body);
-    return res.status(201).send(user._id);
+    return res.status(200).send(user);
   } catch (error) {
     return next(error, req, res);
   }
